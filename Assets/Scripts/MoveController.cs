@@ -9,7 +9,7 @@ public class MoveController : MonoBehaviour
 	public float jumpHeight;
 	public bool canMove;
 
-	//public Animation moveAnime;
+	public Animation moveAnime;
 	public Animation faintAnime;
 	private float moveVelocity;
 	public float dampTime;
@@ -24,6 +24,8 @@ public class MoveController : MonoBehaviour
 	
 	public void ControlMove()
 	{
+		if(!canMove)
+			return;
 		// TODO need to add animation
 		// 跳跃
         if(Input.GetKey(KeyCode.Space) && grounded == true)
@@ -73,18 +75,24 @@ public class MoveController : MonoBehaviour
 	}
 	public void MoveLeft()
 	{
+		if(!canMove)
+			return;
 		//TODO need to add animation
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (-moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
 		transform.localScale = new Vector3 (transform.localScale.x < 0 ? transform.localScale.x : -transform.localScale.x, transform.localScale.y, transform.localScale.z);
 	}
 	public void MoveRight()
 	{
+		if(!canMove)
+			return;
 		// TODO need to add animation
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
 		transform.localScale = new Vector3 (transform.localScale.x > 0 ? transform.localScale.x : -transform.localScale.x, transform.localScale.y, transform.localScale.z);
 	}
 	public void Jump()
 	{
+		if(!canMove)
+			return;
 		// TODO add jump animation
 		if(grounded)
 		{
@@ -92,6 +100,13 @@ public class MoveController : MonoBehaviour
 			GetComponent<Rigidbody2D>().velocity = new Vector2(0,jumpHeight);
 		}
 	}
+	public void Stop() 
+	{
+		if(!canMove)
+			return;
+		GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+	}
+	
     // Start is called before the first frame update
     void Start()
     {

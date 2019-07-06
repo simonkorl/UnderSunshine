@@ -207,11 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd382bf9ffd2f8c48b5b6c550a854ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCheck: {fileID: 0}
+  enemyCheck: {fileID: 7352455280238904796}
   enemyDetectSize: {x: 1.373025, y: 1.172987}
   WhatIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
 --- !u!61 &3855053050915113044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984824489919874}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpHeight: 8
-  canMove: 0
+  canMove: 1
   dampTime: 0
   groundCheck: {fileID: 4051706725728822}
   groundRadius: 0.2664392
@@ -270,7 +270,7 @@ CircleCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.016560078, y: -0.40464795}

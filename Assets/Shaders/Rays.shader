@@ -77,8 +77,8 @@
 
             float4 frag (v2f i) : COLOR
             {
-                int cnt = 35;
-                float stepLength = 0.001;
+                int cnt = 20;
+                float stepLength = 0.002;
                 half2 step = half2(cos(_Angle / 180 * 3.14159265), sin(_Angle / 180 * 3.14159265)) * stepLength;
 
                 [unroll(40)]
@@ -126,8 +126,8 @@
 
             float4 frag (v2f i) : COLOR
             {
-                int cnt = 35;
-                float stepLength = 0.001;
+                int cnt = 20;
+                float stepLength = 0.002;
                 half2 step = half2(cos(_Angle / 180 * 3.14159265), sin(_Angle / 180 * 3.14159265)) * cnt * stepLength;
 
                 [unroll(40)]

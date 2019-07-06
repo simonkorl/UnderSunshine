@@ -10,20 +10,17 @@ public class Player : MonoBehaviour {
 	{
 		playerMove = GetComponent<MoveController>();
 	}
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update()
+	{
 		if(controlled)
 		{
 			playerMove.canMove = true;
 			playerMove.ControlMove();
 		}
-		else{
+		else
+		{
 			playerMove.canMove = false;
 		}
 	}

@@ -13,55 +13,46 @@ public class MoveController : MonoBehaviour
 	private float dampVelocity;
 	
 	[Header("GroundDetect")]
-
-	public Transform groundCheck;
 	public float groundRadius;
 	public LayerMask WhatIsGround;
 	public bool grounded;
+
+	private Animator animator;
+
+	void Start()
+	{
+		animator = GetComponentInChildren<Animator>();
+	}
 	
 	public void ControlMove()
 	{
 		if(!canMove)
 			return;
-		// 跳跃
-        if(Input.GetKey(KeyCode.Space) && grounded == true)
+
+		float horizontal = Input.GetAxis("Horizontal");
+		moveVelocity = horizontal * moveSpeed;
+
+		if(horizontal != 0)
 		{
-			grounded = false;
-			GetComponent<Rigidbody2D>().velocity = new Vector2(0,jumpHeight);
+			transform.localScale = new Vector3 (Mathf.Abs(transform.localScale.x) * (horizontal < 0 ? -1 : 1), transform.localScale.y, transform.localScale.z);
+			if(animator != null)
+				animator.SetBool("Moving", true);
 		}
-
-		// 向右移动
-		if (Input.GetKey (KeyCode.RightArrow)) 
-		{		
-			moveVelocity = moveSpeed;
-			transform.localScale = new Vector3 (transform.localScale.x > 0 ? transform.localScale.x : -transform.localScale.x, transform.localScale.y, transform.localScale.z);
-		}
-
-		// 松开移动按键后，让角色滑行一段距离
-		if (Input.GetKeyUp (KeyCode.RightArrow)) 
-		{	
-			moveVelocity = 0f;
-			//Debug.Log (GetComponent<Rigidbody2D> ().velocity);
-		}
-
-
-		//向左移动
-		if (Input.GetKey (KeyCode.LeftArrow)) 
-		{		
-			moveVelocity = -moveSpeed;
-			transform.localScale = new Vector3 (transform.localScale.x < 0 ? transform.localScale.x : -transform.localScale.x, transform.localScale.y, transform.localScale.z);
-		}
-
-		//松开移动按键后，让角色滑行一段距离
-		if (Input.GetKeyUp (KeyCode.LeftArrow)) 
+		else
 		{
-			
-			moveVelocity = 0f;
-			//Debug.Log (GetComponent<Rigidbody2D> ().velocity);
+			if(animator != null)
+				animator.SetBool("Moving", false);
 		}
 
-		float speedx = Mathf.SmoothDamp (GetComponent<Rigidbody2D> ().velocity.x, moveVelocity, ref dampVelocity, dampTime);
-		GetComponent<Rigidbody2D> ().velocity = new Vector2 (speedx, GetComponent<Rigidbody2D> ().velocity.y);
+		Vector2 velocity = GetComponent<Rigidbody2D>().velocity;
+		velocity.x = Mathf.SmoothDamp(velocity.x, moveVelocity, ref dampVelocity, dampTime);
+		if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && grounded)
+		{
+			velocity.y = jumpHeight;
+			if(animator != null)
+				animator.SetTrigger("Jump");
+		}
+		GetComponent<Rigidbody2D>().velocity = velocity;
 	}
 	public void Copy(MoveController controller)
 	{
@@ -73,14 +64,14 @@ public class MoveController : MonoBehaviour
 	{
 		if(!canMove)
 			return;
-		GetComponent<Rigidbody2D> ().velocity = new Vector2 (-moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
 		transform.localScale = new Vector3 (transform.localScale.x < 0 ? transform.localScale.x : -transform.localScale.x, transform.localScale.y, transform.localScale.z);
 	}
 	public void MoveRight()
 	{
 		if(!canMove)
 			return;
-		GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
 		transform.localScale = new Vector3 (transform.localScale.x > 0 ? transform.localScale.x : -transform.localScale.x, transform.localScale.y, transform.localScale.z);
 	}
 	public void Jump()
@@ -97,20 +88,16 @@ public class MoveController : MonoBehaviour
 	{
 		if(!canMove)
 			return;
-		GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+		GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
 	}
-	
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
-	private void FixedUpdate() 
+	void FixedUpdate() 
 	{
-		grounded = Physics2D.OverlapCircle(groundCheck.position,groundRadius,WhatIsGround);
+		if(Physics2D.Raycast(transform.position, Vector2.down, 0.1f, WhatIsGround).collider != null)
+			grounded = true;
+		else
+			grounded = false;
+		if(animator != null)
+			animator.SetBool("Hovering", !grounded);
 	}
-	// Update is called once per frame
-    void Update()
-    {
-    }
 }

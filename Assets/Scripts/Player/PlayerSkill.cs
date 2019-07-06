@@ -6,6 +6,7 @@ public class PlayerSkill : MonoBehaviour {
 	public Transform enemyCheck;
 	public Vector2 enemyDetectSize;
 	public LayerMask WhatIsEnemy;
+	public Collision2D enemyDetect;
 	GameManager manager;
 
 	void Awake()

@@ -6,7 +6,6 @@ public class Player : MonoBehaviour {
 
 	MoveController playerMove;
 	public bool controlled;
-
 	void Awake()
 	{
 		playerMove = GetComponent<MoveController>();

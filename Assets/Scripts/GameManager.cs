@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour {
 	{
 		Player = FindObjectOfType<Player>();
 		Player.controlled = true;
-		Debug.Log(Player.controlled);
 
 		MoveController[] moveObjects = FindObjectsOfType<MoveController>(); 
 		foreach (var moveObject in moveObjects)

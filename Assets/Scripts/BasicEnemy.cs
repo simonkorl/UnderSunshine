@@ -7,7 +7,7 @@ public class BasicEnemy : MonoBehaviour
 	private float w;
 	private float h;
 	public GameObject playerObject;
-	public float viewRange;
+	public float viewDistance;
 	public float viewHeight;
 	public GameObject viewObject;
 
@@ -27,7 +27,19 @@ public class BasicEnemy : MonoBehaviour
 
 	void SpotPlayer()
 	{
-		
+		Vector2 origin = new Vector2(transform.position.x + (transform.localScale.x > 0 ? 1 : -1) * w / 2, transform.position.y - h / 2 + h * viewHeight);
+		Vector2 direct = new Vector2(transform.localScale.x > 0 ? 1 : -1, 0);
+		if(Physics2D.Raycast(origin, direct, viewDistance,LayerMask.GetMask("Player")))
+		{
+			//* spot player
+			//! only for debug
+			Debug.Log("here!");
+			this.GetComponent<SpriteRenderer>().color = new Color(1,0,0);
+		}
+		else
+		{
+			this.GetComponent<SpriteRenderer>().color = new Color(1,1,1);
+		}
 	}
     // Start is called before the first frame update
     void Start()

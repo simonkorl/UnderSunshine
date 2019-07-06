@@ -8,9 +8,6 @@ public class MoveController : MonoBehaviour
 	public float moveSpeed;
 	public float jumpHeight;
 	public bool canMove;
-
-	public Animation moveAnime;
-	public Animation faintAnime;
 	private float moveVelocity;
 	public float dampTime;
 	private float dampVelocity;
@@ -18,7 +15,7 @@ public class MoveController : MonoBehaviour
 	[Header("GroundDetect")]
 
 	public Transform groundCheck;
-	public Vector2 groundDetectSize;
+	public float groundRadius;
 	public LayerMask WhatIsGround;
 	private bool grounded;
 	
@@ -26,7 +23,6 @@ public class MoveController : MonoBehaviour
 	{
 		if(!canMove)
 			return;
-		// TODO need to add animation
 		// 跳跃
         if(Input.GetKey(KeyCode.Space) && grounded == true)
 		{
@@ -77,7 +73,6 @@ public class MoveController : MonoBehaviour
 	{
 		if(!canMove)
 			return;
-		//TODO need to add animation
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (-moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
 		transform.localScale = new Vector3 (transform.localScale.x < 0 ? transform.localScale.x : -transform.localScale.x, transform.localScale.y, transform.localScale.z);
 	}
@@ -85,7 +80,6 @@ public class MoveController : MonoBehaviour
 	{
 		if(!canMove)
 			return;
-		// TODO need to add animation
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
 		transform.localScale = new Vector3 (transform.localScale.x > 0 ? transform.localScale.x : -transform.localScale.x, transform.localScale.y, transform.localScale.z);
 	}
@@ -93,7 +87,6 @@ public class MoveController : MonoBehaviour
 	{
 		if(!canMove)
 			return;
-		// TODO add jump animation
 		if(grounded)
 		{
 			grounded = false;
@@ -110,17 +103,15 @@ public class MoveController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        groundCheck = GetComponent<Transform>();
     }
 
 	private void FixedUpdate() 
 	{
-		grounded = Physics2D.OverlapBox(groundCheck.position,groundDetectSize,0,WhatIsGround);
+		grounded = Physics2D.OverlapCircle(groundCheck.position,groundRadius,0,WhatIsGround);
 	}
 	// Update is called once per frame
     void Update()
     {
-		// TODO play faint Animation
 		// if(!canMove && !faintAnime.isPlaying)
 		// {
 		// 	faintAnime.Play();

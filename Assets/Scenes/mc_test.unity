@@ -230,8 +230,6 @@ MonoBehaviour:
   moveSpeed: 5
   jumpHeight: 5
   canMove: 0
-  moveAnime: {fileID: 0}
-  faintAnime: {fileID: 0}
   dampTime: 0
   groundCheck: {fileID: 0}
   groundDetectSize: {x: 1, y: 1}
@@ -359,15 +357,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7f48fc6e70b974dabe9854ddcd5ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpHeight: 5
+  moveVelocity: 0
   dampTime: 0
+  dampVelocity: 0
   controllable: 0
   groundCheck: {fileID: 0}
   groundDetectSize: {x: 1, y: 1}
   WhatIsGround:
-    serializedVersion: 2
     m_Bits: 256
+  grounded: 0
 --- !u!1 &820630413
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +450,6 @@ GameObject:
   - component: {fileID: 946730213}
   - component: {fileID: 946730216}
   - component: {fileID: 946730215}
-  - component: {fileID: 946730217}
   - component: {fileID: 946730219}
   - component: {fileID: 946730218}
   m_Layer: 0
@@ -543,27 +568,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.26, y: 6}
   m_EdgeRadius: 0
---- !u!114 &946730217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 946730212}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc7f48fc6e70b974dabe9854ddcd5ee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpHeight: 10
-  dampTime: 0
-  controllable: 0
-  groundCheck: {fileID: 946730214}
-  groundDetectSize: {x: 1, y: 1}
-  WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &946730218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,8 +583,6 @@ MonoBehaviour:
   moveSpeed: 5
   jumpHeight: 5
   canMove: 1
-  moveAnime: {fileID: 0}
-  faintAnime: {fileID: 0}
   dampTime: 0
   groundCheck: {fileID: 0}
   groundDetectSize: {x: 1, y: 1}
@@ -599,13 +601,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7f43d42b0395b4d9c61d93b7f7ce2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerObject: {fileID: 635088295}
   viewRange: 5
-  viewHeight: 0.5
+  viewHeight: 0.8
+  viewObject: {fileID: 1109808854}
   leftPatrolPointx: -3.26
   rightPatrolPointx: -0.45
   stayTime: 1
   controlled: 0
-  beController: {fileID: 0}
 --- !u!1 &1109808854
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,8 +682,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109808854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.86, y: -0.62, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 10.3817, y: -1.3635, z: 0}
+  m_LocalScale: {x: -0.042554453, y: 0.6844858, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5

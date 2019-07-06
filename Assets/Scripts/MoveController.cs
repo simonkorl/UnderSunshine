@@ -17,7 +17,7 @@ public class MoveController : MonoBehaviour
 	public Transform groundCheck;
 	public float groundRadius;
 	public LayerMask WhatIsGround;
-	private bool grounded;
+	public bool grounded;
 	
 	public void ControlMove()
 	{
@@ -112,9 +112,5 @@ public class MoveController : MonoBehaviour
 	// Update is called once per frame
     void Update()
     {
-		// if(!canMove && !faintAnime.isPlaying)
-		// {
-		// 	faintAnime.Play();
-		// }
     }
 }

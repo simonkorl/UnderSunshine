@@ -57,12 +57,13 @@ public class GameManager : MonoBehaviour {
 
 	public void GameOver()
 	{
-		SceneManager.LoadScene ("Level1");
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 	
 	// Update is called once per frame
 	void Update()
 	{
-		//Debug.Log(renderTexture.GetPixel(0, 0));
+		if(Input.GetKeyDown(KeyCode.R))
+			GameOver();
 	}
 }

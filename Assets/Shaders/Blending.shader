@@ -4,7 +4,6 @@
     {
         _MainTex ("Main Tex", 2D) = "white" {}
         _ShadowTex ("Shadow Tex", 2D) = "white" {}
-
     }
     SubShader
     {
@@ -43,7 +42,7 @@
             {
                 half blending_rate = tex2D(_ShadowTex, i.uv).r;
                 half3 col = tex2D(_MainTex, i.uv);
-                return float4(col * blending_rate + (col * 0.2) * (1 - blending_rate), 1.0f);
+                return float4(col * blending_rate + (col * 0.5) * (1 - blending_rate), 1.0f);
             }
 
             ENDCG

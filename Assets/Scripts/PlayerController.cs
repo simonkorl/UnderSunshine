@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 	private float moveVelocity;
 	public float dampTime;
 	private float dampVelocity;
+	public bool controllable;
 	
 	[Header("GroundDetect")]
 
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		controllable = true;
         groundCheck = GetComponent<Transform>();
     }
 
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if(!controllable)
+			return;
 		// 跳跃
         if(Input.GetKey(KeyCode.Space) && grounded == true)
 		{

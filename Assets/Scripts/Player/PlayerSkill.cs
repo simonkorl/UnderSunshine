@@ -7,8 +7,8 @@ public class PlayerSkill : MonoBehaviour {
 	public Vector2 enemyDetectSize;
 	public LayerMask WhatIsEnemy;
 	public Collision2D enemyDetect;
-	public float skillDP;
-	private float DPtimer;
+	public float skillDP = 1;
+	private float DPtimer = 0;
 	Collider2D[] detects;
 	GameObject controlTarget;
 	GameManager manager;
@@ -16,7 +16,6 @@ public class PlayerSkill : MonoBehaviour {
 	void Awake()
 	{
 		manager = FindObjectOfType<GameManager>();
-		DPtimer = 0;
 	}
 	void findTarget()
 	{

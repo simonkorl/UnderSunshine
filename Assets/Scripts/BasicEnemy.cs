@@ -18,11 +18,13 @@ public class BasicEnemy : MonoBehaviour
 	private float staytimer;
 	private bool staying;
 	public bool controlled;
+	public bool canBeControlled;
 	private MoveController beController;
 
 	void Awake()
 	{
 		playerObject = FindObjectOfType<Player>().gameObject;
+		canBeControlled = true;
 	}
 
 	void SpotPlayer()
@@ -33,7 +35,6 @@ public class BasicEnemy : MonoBehaviour
 		{
 			//* spot player
 			//! only for debug
-			Debug.Log("here!");
 			this.GetComponent<SpriteRenderer>().color = new Color(1,0,0);
 		}
 		else

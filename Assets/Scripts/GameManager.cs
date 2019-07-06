@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 
 	void Awake()
 	{
-		MoveController[] moveObjects = FindObjectsOfType<PlayerController>(); 
+		MoveController[] moveObjects = FindObjectsOfType<MoveController>(); 
 		foreach (var moveObject in moveObjects)
 		{
 			if(moveObject.gameObject.name == "Player")

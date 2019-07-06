@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetKey (KeyCode.RightArrow)) {
 			
 			moveVelocity = moveSpeed;
-			//transform.localScale = new Vector3 (1f, 1f, 1f);
+			transform.localScale = new Vector3 (1f, 1f, 1f);
 
 		}
 
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 		{
 			
 			moveVelocity = -moveSpeed;
-			//transform.localScale = new Vector3 (-1f, 1f, 1f);
+			transform.localScale = new Vector3 (-1f, 1f, 1f);
 
 		}
 

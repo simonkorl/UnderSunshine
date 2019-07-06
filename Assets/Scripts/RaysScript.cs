@@ -25,11 +25,11 @@ public class RaysScript : MonoBehaviour
             
             //CurMaterial.SetTexture("_OriginTex", sourceTexture);
             
+            //Graphics.Blit(sourceTexture, destTexture, CurMaterial, 0);
             Graphics.Blit(sourceTexture, renderBuffer, CurMaterial, 0);
 
             Graphics.Blit(renderBuffer, tempBuffer, CurMaterial, 1);
             Graphics.Blit(tempBuffer, destTexture, CurMaterial, 2);
- 
         }
  
         //着色器实例为空，直接拷贝屏幕上的效果。此情况下是没有实现屏幕特效的

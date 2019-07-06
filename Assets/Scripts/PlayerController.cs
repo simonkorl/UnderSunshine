@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 	public Vector2 groundDetectSize;
 	public LayerMask WhatIsGround;
 	private bool grounded;
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
 	{
 		grounded = Physics2D.OverlapBox(groundCheck.position,groundDetectSize,0,WhatIsGround);
 	}
-    // Update is called once per frame
+	// Update is called once per frame
     void Update()
     {
 		// 跳跃

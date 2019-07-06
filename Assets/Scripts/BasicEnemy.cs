@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BasicEnemy : MonoBehaviour
 {
+	private float w;
 	private float h;
 	public GameObject playerObject;
 	public float viewRange;
@@ -26,31 +27,15 @@ public class BasicEnemy : MonoBehaviour
 
 	void SpotPlayer()
 	{
-		float targetViewPoint = transform.position.x + (transform.localScale.x > 0 ? 1 : -1) * viewRange;
 		
-		//! only for test
-		if((transform.localScale.x > 0 && 
-			targetViewPoint >= playerObject.transform.position.x && playerObject.transform.position.x >= transform.position.x && 
-			playerObject.transform.position.y  <= transform.position.y - h / 2 + viewHeight) ||
-			( transform.localScale.x < 0 && 
-			  targetViewPoint <= playerObject.transform.position.x && playerObject.transform.position.x <= transform.position.x &&
-			  playerObject.transform.position.y  >= transform.position.y - h / 2 + viewHeight))
-		{
-			// TODO show the ending
-			viewObject.GetComponent<SpriteRenderer>().color = new Color(1,0,0);
-		}
-		else
-		{
-			viewObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1);
-		}
 	}
     // Start is called before the first frame update
     void Start()
     {
 		beController = GetComponent<MoveController>();
 		staying = false;
+		w = this.GetComponent<SpriteRenderer>().sprite.rect.width / 100 * transform.localScale.x;
 		h = this.GetComponent<SpriteRenderer>().sprite.rect.height / 100 * transform.localScale.y;
-		Debug.Log(h);
 	}
 	private void FixedUpdate() 
 	{

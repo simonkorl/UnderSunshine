@@ -42,11 +42,10 @@ public class PlayerController : MonoBehaviour
 		}
 
 		// 向右移动
-		if (Input.GetKey (KeyCode.RightArrow)) {
-			
+		if (Input.GetKey (KeyCode.RightArrow)) 
+		{
 			moveVelocity = moveSpeed;
-			transform.localScale = new Vector3 (1f, 1f, 1f);
-
+			transform.localScale = new Vector3 (transform.localScale.x > 0 ? transform.localScale.x : -transform.localScale.x, transform.localScale.y, transform.localScale.z);
 		}
 
 		// 松开移动按键后，让角色滑行一段距离
@@ -60,10 +59,8 @@ public class PlayerController : MonoBehaviour
 		//向左移动
 		if (Input.GetKey (KeyCode.LeftArrow)) 
 		{
-			
 			moveVelocity = -moveSpeed;
-			transform.localScale = new Vector3 (-1f, 1f, 1f);
-
+			transform.localScale = new Vector3 (transform.localScale.x < 0 ? transform.localScale.x : -transform.localScale.x, transform.localScale.y, transform.localScale.z);
 		}
 
 		//松开移动按键后，让角色滑行一段距离

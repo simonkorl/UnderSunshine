@@ -14,8 +14,6 @@ public class BasicEnermy : MonoBehaviour
     void Start()
     {
 		beController = GetComponent<MoveController>();
-		MoveController playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<MoveController>();
-		beController.Copy(playerController);
 	}
 
     // Update is called once per frame

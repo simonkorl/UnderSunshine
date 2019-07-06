@@ -230,6 +230,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpHeight: 5
   canMove: 0
+  moveAnime: {fileID: 0}
   faintAnime: {fileID: 0}
   dampTime: 0
   groundCheck: {fileID: 0}
@@ -489,7 +490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946730212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.62, y: 0.28, z: 0.11084927}
+  m_LocalPosition: {x: -3.76, y: 0.08, z: 0.11084927}
   m_LocalScale: {x: 0.143, y: 0.102, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -578,6 +579,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpHeight: 10
   canMove: 0
+  moveAnime: {fileID: 0}
   faintAnime: {fileID: 0}
   dampTime: 0
   groundCheck: {fileID: 0}
@@ -599,8 +601,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRange: 0
   viewHeight: 0
-  movePointset: []
-  controlled: 1
+  leftPatrolPoint: {fileID: 946730214}
+  rightPatrolPoint: {fileID: 0}
+  movingRight: 0
+  stayTime: 1
+  controlled: 0
   beController: {fileID: 0}
 --- !u!1 &1292628397
 GameObject:

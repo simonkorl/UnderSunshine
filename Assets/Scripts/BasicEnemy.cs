@@ -22,8 +22,6 @@ public class BasicEnemy : MonoBehaviour
 	{
 		float targetViewPoint = transform.position.x + (transform.localScale.x > 0 ? 1 : -1) * viewRange;
 		
-		viewObject.transform.position = new Vector3(targetViewPoint,transform.position.y - h / 2 + viewHeight,0);
-		
 		//! only for test
 		if((transform.localScale.x > 0 && 
 			targetViewPoint >= playerObject.transform.position.x && playerObject.transform.position.x >= transform.position.x && 

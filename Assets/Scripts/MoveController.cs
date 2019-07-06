@@ -107,7 +107,7 @@ public class MoveController : MonoBehaviour
 
 	private void FixedUpdate() 
 	{
-		grounded = Physics2D.OverlapCircle(groundCheck.position,groundRadius,0,WhatIsGround);
+		grounded = Physics2D.OverlapCircle(groundCheck.position,groundRadius,WhatIsGround);
 	}
 	// Update is called once per frame
     void Update()

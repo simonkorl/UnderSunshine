@@ -20,7 +20,7 @@
             sampler2D _MainTex;
             float4 _MainTex_ST;
 
-            half3 _BackgroundColor;
+            float _Test;
 
             struct v2f
             {
@@ -40,10 +40,12 @@
             float4 frag (v2f i) : COLOR
             {
                 half3 col = tex2D(_MainTex, i.uv);
-                if(col.r == 0.0f && col.g == 1.0f && col.b == 0.0f)
-                    return fixed4(1.0f, 1.0f, 1.0f, 1.0f);
-                else
+                if(col.r == 1.0f && col.g == 0.0f && col.b == 0.0f)
                     return fixed4(0.0f, 0.0f, 0.0f, 1.0f);
+                if(col.r == 0.0f && col.g == 1.0f && col.b == 0.0f)
+                    return fixed4(0.0f, 1.0f, 0.0f, 1.0f);
+                else
+                    return fixed4(1.0f, 0.0f, 0.0f, 1.0f);
             }
 
             ENDCG
@@ -87,11 +89,13 @@
                     half2 pos = i.uv + step * it;
                     if(pos.x < 0 || pos.x > 1 || pos.y < 0 || pos.y > 1)
                         break;
-                    if(tex2D(_MainTex, pos).r < 0.5)
-                        return fixed4(0.0f, 0.0f, 0.0f, 1.0f);
+                    if(tex2D(_MainTex, pos).r > 0.5)
+                        return fixed4(1.0f, 0.0f, 0.0f, 1.0f);
+                    if(tex2D(_MainTex, pos).g > 0.5)
+                        return fixed4(0.0f, 1.0f, 0.0f, 1.0f);
                 }
 
-                return fixed4(1.0f, 1.0f, 1.0f, 1.0f);
+                return fixed4(0.0f, 0.0f, 0.0f, 1.0f);
 
             }
 
@@ -136,11 +140,13 @@
                     half2 pos = i.uv + step * it;
                     if(pos.x < 0 || pos.x > 1 || pos.y < 0 || pos.y > 1)
                         break;
-                    if(tex2D(_MainTex, pos).r < 0.5)
-                        return fixed4(0.0f, 0.0f, 0.0f, 1.0f);
+                    if(tex2D(_MainTex, pos).r > 0.5)
+                        return fixed4(1.0f, 0.0f, 0.0f, 1.0f);
+                    if(tex2D(_MainTex, pos).g > 0.5)
+                        return fixed4(0.0f, 1.0f, 0.0f, 1.0f);
                 }
 
-                return fixed4(1.0f, 1.0f, 1.0f, 1.0f);
+                return fixed4(0.0f, 0.0f, 0.0f, 1.0f);
 
             }
 

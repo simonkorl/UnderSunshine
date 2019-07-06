@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8163524164473560548}
   - component: {fileID: 8163524164473560549}
   - component: {fileID: 8163524164473560550}
-  - component: {fileID: 8163524164473560553}
   m_Layer: 0
   m_Name: Shadow Camera
   m_TagString: MainCamera
@@ -44,7 +43,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 1, b: 0, a: 0}
+  m_BackGroundColor: {r: 1, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -64,7 +63,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 3328
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: ed3404f91dcfae34981f3a737b8601f6, type: 2}
   m_TargetDisplay: 0
@@ -97,19 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurMaterial: {fileID: 2100000, guid: 10f957bd27364ef46b5abc622a8f8962, type: 2}
---- !u!114 &8163524164473560553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8163524164473560546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: a72994ad72ba317459a0fbb2c46d985e, type: 2}
 --- !u!1 &8163524165361809146
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +154,7 @@ GameObject:
   - component: {fileID: 8163524165571087795}
   - component: {fileID: 8163524165571087792}
   - component: {fileID: 8163524165571087793}
+  - component: {fileID: 3610614022868353775}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -219,7 +206,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2871
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -252,3 +239,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurMaterial: {fileID: 2100000, guid: bec6e340c98bfde4fa1a02548c90278a, type: 2}
+--- !u!114 &3610614022868353775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8163524165571087695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: a72994ad72ba317459a0fbb2c46d985e, type: 2}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -18,7 +19,9 @@ public class GameManager : MonoBehaviour {
 		MoveController[] moveObjects = FindObjectsOfType<MoveController>(); 
 		foreach (var moveObject in moveObjects)
 		{
-			moveObject.GetComponent<BasicEnemy>().controlled = false;
+			var basicEnemy = moveObject.GetComponent<BasicEnemy>();
+			if(basicEnemy != null)
+				basicEnemy.controlled = false;
 		}
 
 	}
@@ -34,7 +37,7 @@ public class GameManager : MonoBehaviour {
 	public void showSkillBar(float ratio) 
 	{
 		//TODO make a real skill progress bar
-		test_Slider.value = ratio;
+		//test_Slider.value = ratio;
 	}
 	void setControllable(GameObject current, bool controllable)
 	{
@@ -52,13 +55,14 @@ public class GameManager : MonoBehaviour {
 			
 	}
 
-	// Use this for initialization
-	void Start () {
-		
+	public void GameOver()
+	{
+		SceneManager.LoadScene ("Level1");
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update()
+	{
+		//Debug.Log(renderTexture.GetPixel(0, 0));
 	}
 }

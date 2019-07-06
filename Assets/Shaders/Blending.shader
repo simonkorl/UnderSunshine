@@ -42,7 +42,7 @@
             {
                 half blending_rate = tex2D(_ShadowTex, i.uv / 1.2).r;
                 half3 col = tex2D(_MainTex, i.uv);
-                return float4(col * blending_rate + (col * 0.5) * (1 - blending_rate), 1.0f);
+                return float4(col * (1 - blending_rate) + (col * 0.5) * blending_rate, 1.0f);
             }
 
             ENDCG

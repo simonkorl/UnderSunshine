@@ -46,7 +46,7 @@ public class MoveController : MonoBehaviour
 
 		Vector2 velocity = GetComponent<Rigidbody2D>().velocity;
 		velocity.x = Mathf.SmoothDamp(velocity.x, moveVelocity, ref dampVelocity, dampTime);
-		if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && grounded)
+		if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && grounded)
 		{
 			velocity.y = jumpHeight;
 			if(animator != null)

@@ -4,28 +4,38 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	public GameObject Player;
+	public Player Player;
 	public GameObject currentObject;
 
 	//public static GameManager instance;
 
 	void Awake()
 	{
+		Player = FindObjectOfType<Player>();
+		Player.controlled = true;
+		Debug.Log(Player.controlled);
+
 		MoveController[] moveObjects = FindObjectsOfType<MoveController>(); 
 		foreach (var moveObject in moveObjects)
 		{
-			if(moveObject.gameObject.name == "Player")
-				moveObject.enabled = true;
-			else
-				moveObject.enabled = false;
+			moveObject.GetComponent<BasicEnemy>().controlled = false;
 		}
+
 	}
 
 	public void setControll(GameObject current)
 	{
-		currentObject.GetComponent<MoveController>().enabled = false;
+		setControllable(currentObject, false);
 		currentObject = current;
-		current.GetComponent<MoveController>().enabled = true;
+		setControllable(currentObject, true);
+	}
+
+	void setControllable(GameObject current, bool controllable)
+	{
+		if(current.name == Player.gameObject.name)
+			current.GetComponent<Player>().controlled = controllable;
+		else
+			current.GetComponent<BasicEnemy>().controlled = controllable;
 	}
 
 	// Use this for initialization

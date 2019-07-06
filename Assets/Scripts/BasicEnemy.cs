@@ -2,28 +2,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicEnermy : MonoBehaviour
+public class BasicEnemy : MonoBehaviour
 {
+	private float h;
+	public GameObject playerObject;
 	public float viewRange;
 	public float viewHeight;
 	public GameObject viewObject;
+
+	[Header("Patrol")]
 	public float leftPatrolPointx;
 	public float rightPatrolPointx;
 	public float stayTime;
 	private float staytimer;
 	private bool staying;
 	public bool controlled;
-	public MoveController beController;
+	private MoveController beController;
+
+	void Awake()
+	{
+		playerObject = FindObjectOfType<Player>().gameObject;
+	}
+
 	void SpotPlayer()
 	{
 		float targetViewPoint = transform.position.x + (transform.localScale.x > 0 ? 1 : -1) * viewRange;
-		viewObject.transform.position = new Vector3(targetViewPoint,transform.position.y,0);
+		
+		viewObject.transform.position = new Vector3(targetViewPoint,transform.position.y - h / 2 + viewHeight,0);
+		
+		//! only for test
+		if((transform.localScale.x > 0 && 
+			targetViewPoint >= playerObject.transform.position.x && playerObject.transform.position.x >= transform.position.x && 
+			playerObject.transform.position.y  <= transform.position.y - h / 2 + viewHeight) ||
+			( transform.localScale.x < 0 && 
+			  targetViewPoint <= playerObject.transform.position.x && playerObject.transform.position.x <= transform.position.x &&
+			  playerObject.transform.position.y  >= transform.position.y - h / 2 + viewHeight))
+		{
+			// TODO show the ending
+			viewObject.GetComponent<SpriteRenderer>().color = new Color(1,0,0);
+		}
+		else
+		{
+			viewObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1);
+		}
 	}
     // Start is called before the first frame update
     void Start()
     {
 		beController = GetComponent<MoveController>();
 		staying = false;
+		h = this.GetComponent<SpriteRenderer>().sprite.rect.height / 100 * transform.localScale.y;
+		Debug.Log(h);
 	}
 	private void FixedUpdate() 
 	{

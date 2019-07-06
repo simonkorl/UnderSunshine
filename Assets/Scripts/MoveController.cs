@@ -17,7 +17,7 @@ public class MoveController : MonoBehaviour
 	public Transform groundCheck;
 	public float groundRadius;
 	public LayerMask WhatIsGround;
-	private bool grounded;
+	public bool grounded;
 	
 	public void ControlMove()
 	{
@@ -107,14 +107,10 @@ public class MoveController : MonoBehaviour
 
 	private void FixedUpdate() 
 	{
-		grounded = Physics2D.OverlapCircle(groundCheck.position,groundRadius,0,WhatIsGround);
+		grounded = Physics2D.OverlapCircle(groundCheck.position,groundRadius,WhatIsGround);
 	}
 	// Update is called once per frame
     void Update()
     {
-		// if(!canMove && !faintAnime.isPlaying)
-		// {
-		// 	faintAnime.Play();
-		// }
     }
 }

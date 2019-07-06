@@ -18,6 +18,12 @@ public class BasicEnemy : MonoBehaviour
 	private bool staying;
 	public bool controlled;
 	private MoveController beController;
+
+	void Awake()
+	{
+		playerObject = FindObjectOfType<Player>().gameObject;
+	}
+
 	void SpotPlayer()
 	{
 		float targetViewPoint = transform.position.x + (transform.localScale.x > 0 ? 1 : -1) * viewRange;

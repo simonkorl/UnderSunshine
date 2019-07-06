@@ -18,7 +18,7 @@ public class MoveController : MonoBehaviour
 	public LayerMask WhatIsGround;
 	private bool grounded;
 	
-	public int Move()
+	public void Move()
 	{
 		// 跳跃
         if(Input.GetKey(KeyCode.Space) && grounded == true)
@@ -27,11 +27,10 @@ public class MoveController : MonoBehaviour
 		}
 
 		// 向右移动
-		if (Input.GetKey (KeyCode.RightArrow)) {
-			
+		if (Input.GetKey (KeyCode.RightArrow)) 
+		{		
 			moveVelocity = moveSpeed;
-			//transform.localScale = new Vector3 (1f, 1f, 1f);
-
+			transform.localScale = new Vector3 (transform.localScale.x > 0 ? transform.localScale.x : -transform.localScale.x, transform.localScale.y, transform.localScale.z);
 		}
 
 		// 松开移动按键后，让角色滑行一段距离
@@ -44,11 +43,9 @@ public class MoveController : MonoBehaviour
 
 		//向左移动
 		if (Input.GetKey (KeyCode.LeftArrow)) 
-		{
-			
+		{		
 			moveVelocity = -moveSpeed;
-			//transform.localScale = new Vector3 (-1f, 1f, 1f);
-
+			transform.localScale = new Vector3 (transform.localScale.x < 0 ? transform.localScale.x : -transform.localScale.x, transform.localScale.y, transform.localScale.z);
 		}
 
 		//松开移动按键后，让角色滑行一段距离
@@ -61,19 +58,6 @@ public class MoveController : MonoBehaviour
 
 		float speedx = Mathf.SmoothDamp (GetComponent<Rigidbody2D> ().velocity.x, moveVelocity, ref dampVelocity, dampTime);
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (speedx, GetComponent<Rigidbody2D> ().velocity.y);
-		
-		if(speedx > 0)
-		{
-			return 1;
-		}
-		else if(speedx < 0)
-		{
-			return 0;
-		}
-		else
-		{
-			return -1;
-		}
 	}
 	public void Copy(MoveController controller)
 	{

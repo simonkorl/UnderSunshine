@@ -64,7 +64,7 @@ public class PlayerSkill : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.Z))
+		if(Input.GetKey(KeyCode.Z) && gameObject.GetComponent<MoveController>().grounded)
 		{
 			if(GetComponent<Player>().controlled)
 			{

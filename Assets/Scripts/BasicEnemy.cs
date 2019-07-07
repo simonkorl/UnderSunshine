@@ -23,6 +23,8 @@ public class BasicEnemy : MonoBehaviour
 	private MoveController beController;
 	private GameManager gameManager;
 	public LayerMask spotObjects;
+	public SpriteRenderer sleepRenderer;
+	public SpriteRenderer charmRenderer;
 	void Awake()
 	{
 		playerObject = FindObjectOfType<Player>().gameObject;
@@ -35,7 +37,8 @@ public class BasicEnemy : MonoBehaviour
 		Vector2 origin = new Vector2(transform.position.x, transform.position.y + h * viewHeight);
 		Vector2 direct = new Vector2(transform.localScale.x > 0 ? 1 : -1, 0);
 		Debug.DrawRay(origin, direct, Color.yellow);
-		if(Physics2D.Raycast(origin, direct, viewDistance,spotObjects).collider.name == "Player")
+		RaycastHit2D hits = Physics2D.Raycast(origin, direct, viewDistance,spotObjects);
+		if(hits.collider != null && hits.collider.name == "Player")
 		{
 			//* spot player
 			gameManager.GameOver();
@@ -59,53 +62,59 @@ public class BasicEnemy : MonoBehaviour
 		// 如果被控制，则玩家操控
         if(controlled)
 		{
+			charmRenderer.enabled = true;
 			beController.ControlMove();
 			// 如果有可以交互的道具
 			// 则可以交互
 		}
-		else if(!onlyStay)
-		{ // 如果不被控制，则自己行动
-			if(staying)
-			{
-				if(staytimer >= stayTime)
+		else
+		{
+			charmRenderer.enabled = false;
+			if(!onlyStay)
+			{ 	
+				// 如果不被控制，则自己行动
+				if(staying)
 				{
-					transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,transform.localPosition.z);
-					staying = false;
+					if(staytimer >= stayTime)
+					{
+						transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,transform.localPosition.z);
+						staying = false;
+					}
+					else
+					{
+						staytimer += Time.deltaTime;
+						return;
+					}
 				}
-				else
-				{
-					staytimer += Time.deltaTime;
-					return;
-				}
-			}
 
-			if(transform.localScale.x > 0)
-			{
-				if(transform.position.x < rightPatrolPointx)
+				if(transform.localScale.x > 0)
 				{
-					beController.MoveRight();
+					if(transform.position.x < rightPatrolPointx)
+					{
+						beController.MoveRight();
+					}
+					else
+					{
+						staying = true;
+						staytimer = 0;
+						beController.Stop();
+					}
 				}
 				else
 				{
-					staying = true;
-					staytimer = 0;
-					beController.Stop();
+					if(transform.position.x > leftPatrolPointx)
+					{
+						beController.MoveLeft();
+					}
+					else
+					{
+						staying = true;
+						staytimer = 0;
+						beController.Stop();
+					}
 				}
 			}
-			else
-			{
-				if(transform.position.x > leftPatrolPointx)
-				{
-					beController.MoveLeft();
-				}
-				else
-				{
-					staying = true;
-					staytimer = 0;
-					beController.Stop();
-				}
-			}
-		}
+		} 
     }
 
 }

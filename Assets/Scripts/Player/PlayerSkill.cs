@@ -15,6 +15,7 @@ public class PlayerSkill : MonoBehaviour {
 	GameManager manager;
 	public CameraFollow cameraFollow;
 	public UnityEvent switchTriggerEvent = new UnityEvent();
+	public SpriteRenderer charmRenderer;
 
 	void Awake()
 	{
@@ -36,14 +37,14 @@ public class PlayerSkill : MonoBehaviour {
 
 		//! only for debug
 		//* can be replaced by animation
-		// if(controlTarget != null)
-		// {
-		// 	this.GetComponent<SpriteRenderer>().color = new Color(0,1,0);
-		// }
-		// else
-		// {
-		// 	this.GetComponent<SpriteRenderer>().color = new Color(1,1,1);
-		// }
+		if(controlTarget != null && manager.currentObject.name == "Player")
+		{
+			charmRenderer.enabled = true;
+		}
+		else
+		{
+			charmRenderer.enabled = false;
+		}
 	}
 
 	public void useControllSkill()

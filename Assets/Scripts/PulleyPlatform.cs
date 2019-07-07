@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class PulleyPlatform : MonoBehaviour
 {
-	public GameObject player;
-	public GameObject[] objs;
-	public BoxCollider2D collider;
-	public Transform trans;
+	protected GameObject player;
+	protected GameObject[] objs;
+	protected BoxCollider2D collider;
+	protected Transform trans;
 	public int triggerNum;
-	public int currentCount;
+	protected int currentCount;
 	public Transform[] sourceTransforms;
 	public Transform[] targetTransforms;
 	public float deltaY;
 	public float duration;
-	public float triggerTime;
+	protected float triggerTime;
 
 	void Start()
 	{

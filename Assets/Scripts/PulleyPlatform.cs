@@ -7,7 +7,7 @@ public class PulleyPlatform : MonoBehaviour
 {
 	protected GameObject player;
 	protected GameObject[] objs;
-	protected BoxCollider2D collider;
+	protected PolygonCollider2D collider;
 	protected Transform trans;
 	public int triggerNum;
 	protected int currentCount;
@@ -25,7 +25,7 @@ public class PulleyPlatform : MonoBehaviour
 	
 	protected bool CheckCollide(GameObject obj)
 	{
-		BoxCollider2D objCollider = obj.GetComponent<BoxCollider2D>() as BoxCollider2D;
+		Collider2D objCollider = obj.GetComponent<Collider2D>() as Collider2D;
 		Transform objTrans = obj.GetComponent<Transform>() as Transform;
 		return collider.IsTouching(objCollider) && objTrans.position.y >= trans.position.y;
 	}
@@ -39,7 +39,7 @@ public class PulleyPlatform : MonoBehaviour
 	{
 		player = GameObject.FindGameObjectsWithTag("Player")[0];
 		objs = GameObject.FindGameObjectsWithTag("Enermy");
-		collider = gameObject.GetComponent<BoxCollider2D>() as BoxCollider2D;
+		collider = gameObject.GetComponent<PolygonCollider2D>() as PolygonCollider2D;
 		trans = gameObject.GetComponent<Transform>() as Transform;
 		if (player == null || collider == null || trans == null) return;
 		int count = 0;

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 
 	public Player Player;
 	public GameObject winFlag;
+	public string nextScene;
 	public GameObject currentObject;
 	public UnityEngine.UI.Slider test_Slider; //! only for test
 	// public static GameManager instance;
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour {
 	{
 		if(Player.transform.position.x >= winFlag.transform.position.x)
 		{
-			Debug.Log("Win!");
+			SceneManager.LoadScene(nextScene);
 		}
 	}
 	public void setControll(GameObject current)

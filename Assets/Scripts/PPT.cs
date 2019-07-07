@@ -12,6 +12,7 @@ public class PPT : MonoBehaviour
 
     IEnumerator Play()
     {
+    	yield return new WaitForSeconds(2.0f);
     	for(int i = 0; i < cgs.Length; i++)
     	{
     		while(!Input.anyKeyDown)

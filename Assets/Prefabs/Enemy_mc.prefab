@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4002170740761670520}
   - component: {fileID: 4907651749812589860}
-  - component: {fileID: 6847293963112158591}
   m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
@@ -80,25 +79,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &6847293963112158591
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4106499000320004806}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 29ca50dda8d88a24eb0984463439a133, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6853971936241518051
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +94,7 @@ GameObject:
   - component: {fileID: 7129060865926524988}
   - component: {fileID: 543538663934094223}
   m_Layer: 12
-  m_Name: Enemy
+  m_Name: Enemy_mc
   m_TagString: Enermy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

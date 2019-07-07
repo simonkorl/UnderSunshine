@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
 	public Player Player;
+	public GameObject winFlag;
 	public GameObject currentObject;
 	public UnityEngine.UI.Slider test_Slider; //! only for test
 	// public static GameManager instance;
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour {
 	void Awake()
 	{
 		Player = FindObjectOfType<Player>();
+		winFlag = GameObject.Find("WinFlag");
 		currentObject = Player.gameObject;
 		Player.controlled = true;
 
@@ -25,7 +27,13 @@ public class GameManager : MonoBehaviour {
 		}
 
 	}
-
+	public void winCheck()
+	{
+		if(Player.transform.position.x >= winFlag.transform.position.x)
+		{
+			Debug.Log("Win!");
+		}
+	}
 	public void setControll(GameObject current)
 	{
 		setControllable(currentObject, false);
@@ -64,5 +72,6 @@ public class GameManager : MonoBehaviour {
 	{
 		if(Input.GetKeyDown(KeyCode.R))
 			GameOver();
+		winCheck();
 	}
 }

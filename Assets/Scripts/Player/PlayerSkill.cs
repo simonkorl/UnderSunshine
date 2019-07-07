@@ -12,10 +12,12 @@ public class PlayerSkill : MonoBehaviour {
 	Collider2D[] detects;
 	GameObject controlTarget;
 	GameManager manager;
+	public CameraFollow cameraFollow;
 
 	void Awake()
 	{
 		manager = FindObjectOfType<GameManager>();
+		cameraFollow = GameObject.Find("Cameras").GetComponent<CameraFollow>();
 	}
 	void findTarget()
 	{
@@ -47,14 +49,14 @@ public class PlayerSkill : MonoBehaviour {
 		findTarget();
 		if(controlTarget != null)
 		{
+			cameraFollow.player = controlTarget;
 			manager.setControll(controlTarget);
-			//! only for debug
-			// this.GetComponent<SpriteRenderer>().color = new Color(1,1,1);
 		}
 	}
 
 	void takeBackControll()
 	{
+		cameraFollow.player = gameObject;
 		manager.setControll(gameObject);
 	}
 	void FixedUpdate() {

@@ -12,7 +12,7 @@ public class PlayerSkill : MonoBehaviour {
 	private float DPtimer = 0;
 	Collider2D[] detects;
 	GameObject controlTarget;
-	GameManager manager;
+	public GameManager manager;
 	public CameraFollow cameraFollow;
 	public UnityEvent switchTriggerEvent = new UnityEvent();
 	public SpriteRenderer charmRenderer;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerSkill : MonoBehaviour {
 	public Transform enemyCheck;
@@ -13,6 +14,8 @@ public class PlayerSkill : MonoBehaviour {
 	GameObject controlTarget;
 	GameManager manager;
 	public CameraFollow cameraFollow;
+
+	public UnityEvent switchTriggerEvent = new UnityEvent();
 
 	void Awake()
 	{
@@ -96,6 +99,10 @@ public class PlayerSkill : MonoBehaviour {
 					DPtimer = 0;
 				}
 			}
+		}
+		else if (Input.GetKeyDown(KeyCode.C))   // TODO: Change this
+		{
+			switchTriggerEvent.Invoke();
 		}
 		else
 		{

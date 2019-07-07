@@ -24,7 +24,10 @@ public class PPT : MonoBehaviour
 	        }
 	        cg.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
     	}
-    	SceneManager.LoadScene(nextLevel);
+    	if(nextLevel != "")
+    		SceneManager.LoadScene(nextLevel);
+    	else
+    		Application.Quit();
     }
 
     void Start()

@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 12
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
@@ -62,7 +62,6 @@ LightmapSettings:
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
-    m_ExtractAmbientOcclusion: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
@@ -77,16 +76,10 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVREnvironmentSampleCount: 500
-    m_PVREnvironmentReferencePointCount: 2048
-    m_PVRFilteringMode: 2
-    m_PVRDenoiserTypeDirect: 0
-    m_PVRDenoiserTypeIndirect: 0
-    m_PVRDenoiserTypeAO: 0
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
-    m_PVREnvironmentMIS: 0
+    m_PVRFilteringMode: 2
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -95,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-    m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -202,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310342a44ed6302449956e44acbfea17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touched: 0
+  delay: 1
   sprite: {fileID: 651911700}
   sprite1: {fileID: 460534260}
   sprite2: {fileID: 1542439023}
@@ -2693,7 +2685,6 @@ GameObject:
   m_Component:
   - component: {fileID: 400363312}
   - component: {fileID: 400363313}
-  - component: {fileID: 400363314}
   m_Layer: 8
   m_Name: Box (7)
   m_TagString: Untagged
@@ -2741,29 +2732,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &400363314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400363311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 747cb4f77839e469fb0569c0127835b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerNum: 1
-  sourceTransforms:
-  - {fileID: 1493076063}
-  - {fileID: 1235397981}
-  - {fileID: 1233298200}
-  - {fileID: 400363312}
-  targetTransforms:
-  - {fileID: 651911702}
-  - {fileID: 41581507}
-  deltaY: 2
-  duration: 1.2
 --- !u!1 &417083327
 GameObject:
   m_ObjectHideFlags: 0
@@ -11899,7 +11867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310342a44ed6302449956e44acbfea17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touched: 0
+  delay: 1
   sprite: {fileID: 1629018857}
   sprite1: {fileID: 917957865}
   sprite2: {fileID: 303824298}

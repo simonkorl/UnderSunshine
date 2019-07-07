@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour {
 
 	public void setControll(GameObject current)
 	{
-		//? we might need to add camera tracking when we change the control
 		setControllable(currentObject, false);
 		currentObject = current;
 		setControllable(currentObject, true);
@@ -57,6 +56,7 @@ public class GameManager : MonoBehaviour {
 
 	public void GameOver()
 	{
+		Debug.Log("Game Over!");
 		SceneManager.LoadScene ("Level1");
 	}
 	

@@ -35,6 +35,8 @@ public class Player : MonoBehaviour {
 									Mathf.Infinity, 
 									LayerMask.GetMask("Floor") | LayerMask.GetMask("Hole") | LayerMask.GetMask("Shelter"));
 		if(hit.collider == null || LayerMask.LayerToName(hit.transform.gameObject.layer) == "Hole")
+		{
 			gameManager.GameOver();
+		}
 	}
 }

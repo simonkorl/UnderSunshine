@@ -13,12 +13,14 @@ public class PlayerSkill : MonoBehaviour {
 	Collider2D[] detects;
 	GameObject controlTarget;
 	GameManager manager;
+	public CameraFollow cameraFollow;
 
 	public UnityEvent switchTriggerEvent = new UnityEvent();
 
 	void Awake()
 	{
 		manager = FindObjectOfType<GameManager>();
+		cameraFollow = GameObject.Find("Cameras").GetComponent<CameraFollow>();
 	}
 	void findTarget()
 	{
@@ -50,14 +52,14 @@ public class PlayerSkill : MonoBehaviour {
 		findTarget();
 		if(controlTarget != null)
 		{
+			cameraFollow.player = controlTarget;
 			manager.setControll(controlTarget);
-			//! only for debug
-			// this.GetComponent<SpriteRenderer>().color = new Color(1,1,1);
 		}
 	}
 
 	void takeBackControll()
 	{
+		cameraFollow.player = gameObject;
 		manager.setControll(gameObject);
 	}
 	void FixedUpdate() {
@@ -65,7 +67,7 @@ public class PlayerSkill : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.Z))
+		if(Input.GetKey(KeyCode.Z) && gameObject.GetComponent<MoveController>().grounded)
 		{
 			if(GetComponent<Player>().controlled)
 			{

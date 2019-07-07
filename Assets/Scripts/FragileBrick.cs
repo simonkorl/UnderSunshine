@@ -5,6 +5,7 @@ using UnityEngine;
 public class FragileBrick : MonoBehaviour
 {
 	bool touched = false;
+	public float delay = 1f;
 
 	public GameObject sprite;
 	public GameObject sprite1;
@@ -12,7 +13,7 @@ public class FragileBrick : MonoBehaviour
 
 	IEnumerator Break()
 	{
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(delay);
 		sprite.SetActive(false);
 		sprite1.SetActive(true);
 		sprite2.SetActive(true);

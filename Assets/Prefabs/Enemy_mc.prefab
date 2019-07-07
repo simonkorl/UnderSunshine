@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 0}
-  viewDistance: 10
+  viewDistance: 6
   viewHeight: 0.5
   viewObject: {fileID: 0}
   leftPatrolPointx: 0

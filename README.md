@@ -1,4 +1,4 @@
-# VampireHouse CiGA game jam project
+# CiGA game jam project - UnderSunshine
 
 ## 游戏类型
 

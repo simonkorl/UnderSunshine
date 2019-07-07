@@ -39,7 +39,8 @@ public class Switch : MonoBehaviour
 	{
 		if (isTriggered) return;
 		spriteRenderer.sprite = triggeredSprite;
-		// TODO: Manipulate the target
+		if (target != null) target.SendMessage("startMoving");
+		isTriggered = true;
 	}
 
 	void OnTriggerExit2D(Collider2D collider)

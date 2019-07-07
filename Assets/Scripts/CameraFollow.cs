@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
 	public float followingSpeed = 5f;
 
-    GameObject player = null;
+    public GameObject player = null;
 
     void Start()
     {

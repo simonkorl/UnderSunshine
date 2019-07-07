@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour {
 			{
 				current.GetComponent<MoveController>().canMove = false;
 				current.GetComponent<BasicEnemy>().canBeControlled = false;
+				current.GetComponent<BasicEnemy>().sleepRenderer.enabled = true;
 			}
 		}
 			

@@ -44,7 +44,7 @@ public class PlayerSkill : MonoBehaviour {
 		// }
 	}
 
-	void useControllSkill()
+	public void useControllSkill()
 	{
 		findTarget();
 		if(controlTarget != null)
@@ -54,7 +54,7 @@ public class PlayerSkill : MonoBehaviour {
 		}
 	}
 
-	void takeBackControll()
+	public void takeBackControll()
 	{
 		cameraFollow.player = gameObject;
 		manager.setControll(gameObject);
@@ -64,7 +64,7 @@ public class PlayerSkill : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.Z))
+		if(Input.GetKey(KeyCode.Z) && gameObject.GetComponent<MoveController>().grounded)
 		{
 			if(GetComponent<Player>().controlled)
 			{

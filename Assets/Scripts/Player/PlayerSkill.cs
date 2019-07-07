@@ -100,7 +100,7 @@ public class PlayerSkill : MonoBehaviour {
 				}
 			}
 		}
-		else if (Input.GetKeyDown(KeyCode.C))   // TODO: Change this
+		else if (Input.GetKeyDown(KeyCode.X))   // TODO: Change this
 		{
 			switchTriggerEvent.Invoke();
 		}

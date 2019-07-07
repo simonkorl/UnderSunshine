@@ -10,10 +10,16 @@ public class TruckBehavior : MonoBehaviour
 	private MovingPlatform truckMove;
 	Collider2D[] detects;
 	GameObject driver;
+	private SpriteRenderer sRenderer;
+	private GameObject player;
+	bool operated = false;
     // Start is called before the first frame update
     void Start()
     {
         truckMove = GetComponent<MovingPlatform>();
+		sRenderer = GetComponent<SpriteRenderer>();
+		player = GameObject.Find("Player");
+		sRenderer.enabled = false;
     }
 	void findTarget()
 	{
@@ -34,12 +40,14 @@ public class TruckBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		
-		if(Input.GetKeyDown(KeyCode.X) && driver != null)
+		if(!operated && Input.GetKeyDown(KeyCode.X) && driver != null)
 		{
+			sRenderer.enabled = true;
+			player.GetComponent<PlayerSkill>().takeBackControll();
 			Destroy(driver);
 			// change the image
 			truckMove.startMoving();
+			operated = true;
 		}
     }
 }

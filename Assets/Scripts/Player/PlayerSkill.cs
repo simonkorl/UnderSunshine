@@ -44,7 +44,7 @@ public class PlayerSkill : MonoBehaviour {
 		// }
 	}
 
-	void useControllSkill()
+	public void useControllSkill()
 	{
 		findTarget();
 		if(controlTarget != null)
@@ -54,7 +54,7 @@ public class PlayerSkill : MonoBehaviour {
 		}
 	}
 
-	void takeBackControll()
+	public void takeBackControll()
 	{
 		cameraFollow.player = gameObject;
 		manager.setControll(gameObject);

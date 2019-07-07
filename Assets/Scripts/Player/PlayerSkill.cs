@@ -14,7 +14,6 @@ public class PlayerSkill : MonoBehaviour {
 	GameObject controlTarget;
 	GameManager manager;
 	public CameraFollow cameraFollow;
-
 	public UnityEvent switchTriggerEvent = new UnityEvent();
 
 	void Awake()

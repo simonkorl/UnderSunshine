@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour
 {
+	protected GameObject player;
 	protected PlayerSkill skill;
 	protected BoxCollider2D collider;
 
@@ -16,7 +17,7 @@ public class Switch : MonoBehaviour
 
 	void Start()
 	{
-		GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
+		player = GameObject.FindGameObjectsWithTag("Player")[0];
 		collider = gameObject.GetComponent<BoxCollider2D>() as BoxCollider2D;
 		if (player == null || collider == null) return;
 		skill = player.GetComponent<PlayerSkill>() as PlayerSkill;
@@ -39,6 +40,11 @@ public class Switch : MonoBehaviour
 		spriteRenderer.sprite = triggeredSprite;
 		if (target != null) target.SendMessage("startMoving");
 		isTriggered = true;
+
+		if (controlledObj != player)
+		{
+			skill.takeBackControll();
+		}
 	}
 
 	void OnDestroy()

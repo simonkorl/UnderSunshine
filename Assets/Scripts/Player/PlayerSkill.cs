@@ -103,11 +103,6 @@ public class PlayerSkill : MonoBehaviour {
 		else if (Input.GetKeyDown(KeyCode.X))   // TODO: Change this
 		{
 			switchTriggerEvent.Invoke();
-			if(manager.currentObject != gameObject)
-			{
-				takeBackControll();
-				DPtimer = 0;
-			}
 		}
 		else
 		{

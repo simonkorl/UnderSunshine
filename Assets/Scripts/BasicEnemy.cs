@@ -16,30 +16,28 @@ public class BasicEnemy : MonoBehaviour
 	public float rightPatrolPointx;
 	public float stayTime;
 	private float staytimer;
-	private bool staying;
+	public bool staying;
 	public bool controlled;
 	public bool canBeControlled;
 	private MoveController beController;
+	private GameManager gameManager;
 
 	void Awake()
 	{
 		playerObject = FindObjectOfType<Player>().gameObject;
+		gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 		canBeControlled = true;
 	}
 
 	void SpotPlayer()
 	{
-		Vector2 origin = new Vector2(transform.position.x + (transform.localScale.x > 0 ? 1 : -1) * w / 2, transform.position.y - h / 2 + h * viewHeight);
+		Vector2 origin = new Vector2(transform.position.x, transform.position.y + h * viewHeight);
 		Vector2 direct = new Vector2(transform.localScale.x > 0 ? 1 : -1, 0);
+		Debug.DrawRay(origin, direct, Color.yellow);
 		if(Physics2D.Raycast(origin, direct, viewDistance,LayerMask.GetMask("Player")))
 		{
 			//* spot player
-			//! only for debug
-			this.GetComponent<SpriteRenderer>().color = new Color(1,0,0);
-		}
-		else
-		{
-			this.GetComponent<SpriteRenderer>().color = new Color(1,1,1);
+			gameManager.GameOver();
 		}
 	}
     // Start is called before the first frame update
@@ -47,12 +45,12 @@ public class BasicEnemy : MonoBehaviour
     {
 		beController = GetComponent<MoveController>();
 		staying = false;
-		w = this.GetComponent<SpriteRenderer>().sprite.rect.width / 100 * transform.localScale.x;
-		h = this.GetComponent<SpriteRenderer>().sprite.rect.height / 100 * transform.localScale.y;
+		h = this.GetComponent<BoxCollider2D>().size.y;
 	}
 	private void FixedUpdate() 
 	{
-		SpotPlayer();
+		if(beController.canMove && canBeControlled)
+			SpotPlayer();
 	}
     // Update is called once per frame
     void Update()

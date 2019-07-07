@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class PulleyPlatform : MonoBehaviour
 {
-	protected GameObject player;
-	protected GameObject[] objs;
-	protected PolygonCollider2D collider;
-	protected Transform trans;
+	public GameObject player;
+	public GameObject[] objs;
+	public PolygonCollider2D collider;
+	public Transform trans;
 	public int triggerNum;
-	protected int currentCount;
+	public int currentCount;
 	public Transform[] sourceTransforms;
 	public Transform[] targetTransforms;
 	public float deltaY;
 	public float duration;
-	protected float triggerTime;
+	public float triggerTime;
 
 	void Start()
 	{
@@ -23,14 +23,14 @@ public class PulleyPlatform : MonoBehaviour
 		if (duration == 0) duration = 1;
 	}
 	
-	protected bool CheckCollide(GameObject obj)
+	public bool CheckCollide(GameObject obj)
 	{
 		Collider2D objCollider = obj.GetComponent<Collider2D>() as Collider2D;
 		Transform objTrans = obj.GetComponent<Transform>() as Transform;
 		return collider.IsTouching(objCollider) && objTrans.position.y >= trans.position.y;
 	}
 
-	protected float Ease(float x)
+	public float Ease(float x)
 	{
 		return x * x;
 	}

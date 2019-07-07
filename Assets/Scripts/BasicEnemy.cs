@@ -18,10 +18,11 @@ public class BasicEnemy : MonoBehaviour
 	private float staytimer;
 	public bool staying;
 	public bool controlled;
+	public bool onlyStay;
 	public bool canBeControlled;
 	private MoveController beController;
 	private GameManager gameManager;
-
+	public LayerMask spotObjects;
 	void Awake()
 	{
 		playerObject = FindObjectOfType<Player>().gameObject;
@@ -34,7 +35,7 @@ public class BasicEnemy : MonoBehaviour
 		Vector2 origin = new Vector2(transform.position.x, transform.position.y + h * viewHeight);
 		Vector2 direct = new Vector2(transform.localScale.x > 0 ? 1 : -1, 0);
 		Debug.DrawRay(origin, direct, Color.yellow);
-		if(Physics2D.Raycast(origin, direct, viewDistance,LayerMask.GetMask("Player")))
+		if(Physics2D.Raycast(origin, direct, viewDistance,spotObjects).collider.name == "Player")
 		{
 			//* spot player
 			gameManager.GameOver();
@@ -62,7 +63,7 @@ public class BasicEnemy : MonoBehaviour
 			// 如果有可以交互的道具
 			// 则可以交互
 		}
-		else
+		else if(!onlyStay)
 		{ // 如果不被控制，则自己行动
 			if(staying)
 			{

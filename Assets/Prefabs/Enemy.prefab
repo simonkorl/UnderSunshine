@@ -129,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 6853971936241518051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.713, y: 0.713, z: 0.713}
+  m_LocalScale: {x: 1, y: 1, z: 0.713}
   m_Children:
   - {fileID: 4002170740761670520}
   m_Father: {fileID: 0}
@@ -221,10 +221,14 @@ MonoBehaviour:
   viewObject: {fileID: 0}
   leftPatrolPointx: 0
   rightPatrolPointx: 0
-  stayTime: 10000000
+  stayTime: 1
   staying: 0
   controlled: 0
+  onlyStay: 1
   canBeControlled: 1
+  spotObjects:
+    serializedVersion: 2
+    m_Bits: 2816
 --- !u!61 &543538663934094223
 BoxCollider2D:
   m_ObjectHideFlags: 0

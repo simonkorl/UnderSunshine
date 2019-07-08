@@ -42,9 +42,11 @@ public static class SFXUtils
     };
 
     private static bool _initialized = false;
-    private static System.Random random;
     private static AudioClip[] _clips;
     private static AudioSource _audioSrc;
+
+    private static System.Random random;
+    private static int lastRand;
 
     private static void Initialize()
     {
@@ -97,6 +99,23 @@ public static class SFXUtils
             Object.DontDestroyOnLoad(obj);
         }
 		_audioSrc = obj.AddComponent(typeof(AudioSource)) as AudioSource;
+
+        lastRand = -1;
+    }
+
+    private static int NextRand(int start, int end)
+    {
+        int result;
+        if (lastRand >= start && lastRand <= end)
+        {
+            result = random.Next(start, end);
+            if (result == lastRand) result = end;
+        }
+        else
+        {
+            result = random.Next(start, end + 1);
+        }
+        return result;
     }
 
     public static AudioClip GetClip(Clips clip)
@@ -108,7 +127,7 @@ public static class SFXUtils
     public static AudioClip GetRandomClip(Clips start, Clips end)
     {
         Initialize();
-        return _clips[random.Next((int)start, (int)end + 1)];
+        return _clips[NextRand((int)start, (int)end + 1)];
     }
 
     public static void PlayOnce(Clips clip, float volume)

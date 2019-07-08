@@ -50,6 +50,6 @@ public class Switch : MonoBehaviour
 
 	void OnDestroy()
 	{
-		skill.switchTriggerEvent.RemoveListener(Trigger);
+		if (skill) skill.switchTriggerEvent.RemoveListener(Trigger);
 	}
 }

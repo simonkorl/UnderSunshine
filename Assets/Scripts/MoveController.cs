@@ -19,6 +19,8 @@ public class MoveController : MonoBehaviour
 
 	private Animator animator;
 
+	public string groundTag;
+
 	void Start()
 	{
 		animator = GetComponentInChildren<Animator>();
@@ -98,10 +100,16 @@ public class MoveController : MonoBehaviour
 			Rigidbody2D body = GetComponent<Rigidbody2D>();
 			body.velocity = new Vector2(0, body.velocity.y);
 		}
-		if(Physics2D.Raycast(transform.position, Vector2.down, 0.1f, WhatIsGround).collider != null)
+		Collider2D collider = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, WhatIsGround).collider;
+		if (collider != null)
+		{
 			grounded = true;
+			groundTag = collider.gameObject.tag;
+		}
 		else
+		{
 			grounded = false;
+		}
 		if(animator != null)
 			animator.SetBool("Hovering", !grounded);
 	}

@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 6134620337969665489}
   - component: {fileID: 7129060865926524988}
   - component: {fileID: 543538663934094223}
+  - component: {fileID: 5876794865356727046}
   m_Layer: 12
   m_Name: Enemy
   m_TagString: Enermy
@@ -363,6 +364,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   grounded: 0
+  groundTag: 
 --- !u!114 &7129060865926524988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,3 +419,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.100121, y: 1.8006287}
   m_EdgeRadius: 0
+--- !u!114 &5876794865356727046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6853971936241518051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9046307d7fe634984b9815155123763e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepInterval: 0.25
+  isWorker: 1

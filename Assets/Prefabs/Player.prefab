@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 534617603}
   - component: {fileID: 534617602}
   - component: {fileID: 534617601}
+  - component: {fileID: 2785667900213868478}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -119,6 +120,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   skillDP: 1
+  manager: {fileID: 0}
   cameraFollow: {fileID: 0}
   switchTriggerEvent:
     m_PersistentCalls:
@@ -147,6 +149,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   grounded: 0
+  groundTag: 
 --- !u!61 &534617601
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,6 +176,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6637342, y: 0.92820144}
   m_EdgeRadius: 0
+--- !u!114 &2785667900213868478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534617599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9046307d7fe634984b9815155123763e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepInterval: 0.2
 --- !u!1 &1129295340
 GameObject:
   m_ObjectHideFlags: 0

@@ -1909,7 +1909,7 @@ GameObject:
   - component: {fileID: 313010393}
   m_Layer: 8
   m_Name: Box (3)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5762,7 +5762,7 @@ GameObject:
   - component: {fileID: 906510847}
   m_Layer: 8
   m_Name: Box (2)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9687,7 +9687,7 @@ GameObject:
   - component: {fileID: 1601187340}
   m_Layer: 8
   m_Name: Box (15)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10624,7 +10624,7 @@ GameObject:
   - component: {fileID: 1754420829}
   m_Layer: 8
   m_Name: Box (4)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10997,7 +10997,7 @@ GameObject:
   - component: {fileID: 1810488801}
   m_Layer: 8
   m_Name: Box (1)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

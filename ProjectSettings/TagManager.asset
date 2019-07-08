@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enermy
+  - WoodenBox
+  - MetalPlatform
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,6 @@ TagManager:
   - Hole
   - Shelter
   - Enemy
-  - 
   - 
   - 
   - 

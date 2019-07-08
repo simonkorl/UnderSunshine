@@ -93,6 +93,8 @@ public class MoveController : MonoBehaviour
 
 	void FixedUpdate() 
 	{
+		if (!canMove)
+			GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
 		if(Physics2D.Raycast(transform.position, Vector2.down, 0.1f, WhatIsGround).collider != null)
 			grounded = true;
 		else

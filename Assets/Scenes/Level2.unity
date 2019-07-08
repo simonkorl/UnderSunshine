@@ -726,19 +726,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747cb4f77839e469fb0569c0127835b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  objs: []
-  collider: {fileID: 0}
-  trans: {fileID: 0}
   triggerNum: 1
-  currentCount: 0
   sourceTransforms:
   - {fileID: 105208466}
   targetTransforms:
   - {fileID: 838864105}
   deltaY: 1.5
   duration: 2
-  triggerTime: 0
 --- !u!60 &105208468
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9620,6 +9614,7 @@ GameObject:
   - component: {fileID: 666276633}
   - component: {fileID: 666276635}
   - component: {fileID: 666276634}
+  - component: {fileID: 666276636}
   m_Layer: 8
   m_Name: "\u7BB1\u5B50 (1)"
   m_TagString: Untagged
@@ -9736,6 +9731,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.66, y: 2.27}
   m_EdgeRadius: 0
+--- !u!114 &666276636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666276631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f029e062ce14051a2b5e6d6a478a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &666986879
 GameObject:
   m_ObjectHideFlags: 0
@@ -12917,12 +12924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747cb4f77839e469fb0569c0127835b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  objs: []
-  collider: {fileID: 0}
-  trans: {fileID: 0}
   triggerNum: 2
-  currentCount: 0
   sourceTransforms:
   - {fileID: 963423132}
   targetTransforms:
@@ -12931,7 +12933,6 @@ MonoBehaviour:
   - {fileID: 1608309510}
   deltaY: 4
   duration: 2
-  triggerTime: 0
 --- !u!1 &964928805
 GameObject:
   m_ObjectHideFlags: 0

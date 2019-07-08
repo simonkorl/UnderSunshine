@@ -92,11 +92,13 @@ public class PlayerSkill : MonoBehaviour {
 				{
 					useControllSkill();
 					DPtimer = 0;
+					SFXUtils.PlayOnce(SFXUtils.Clips.Control, 1.0f);
 				}
 				else
 				{
 					takeBackControll();
 					DPtimer = 0;
+					SFXUtils.PlayOnce(SFXUtils.Clips.Discontrol, 1.0f);
 				}
 			}
 		}

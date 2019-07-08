@@ -7,6 +7,10 @@ public static class SFXUtils
         Brickbreaking,
         ElectricMotor,
         ElectricMotorOff,
+        Control,
+        Discontrol,
+        Pulley,
+        WoodenBox,
         Count
     };
 
@@ -23,7 +27,11 @@ public static class SFXUtils
 		_clips[(int)Clips.Brickbreaking] = Resources.Load<AudioClip>("Audio/SFX/brickbreaking");
 		_clips[(int)Clips.ElectricMotor] = Resources.Load<AudioClip>("Audio/SFX/electricmotor");
 		_clips[(int)Clips.ElectricMotorOff] = Resources.Load<AudioClip>("Audio/SFX/electricmotoroff");
-        
+		_clips[(int)Clips.Control] = Resources.Load<AudioClip>("Audio/SFX/control");
+		_clips[(int)Clips.Discontrol] = Resources.Load<AudioClip>("Audio/SFX/discontrol");
+		_clips[(int)Clips.Pulley] = Resources.Load<AudioClip>("Audio/SFX/pulley");
+		_clips[(int)Clips.WoodenBox] = Resources.Load<AudioClip>("Audio/SFX/woodenbox");
+
         GameObject obj = GameObject.Find("Audio Manager");
         if (obj == null)
         {

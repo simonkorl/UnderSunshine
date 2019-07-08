@@ -92,6 +92,16 @@ public static class SFXUtils
         _clips[(int)Clips.Jump] = Resources.Load<AudioClip>("Audio/SFX/jump/jump");
         _clips[(int)Clips.Fall] = Resources.Load<AudioClip>("Audio/SFX/jump/fall");
 
+        // Postprocess
+        AudioClip clipOrig = _clips[(int)Clips.ElectricMotor];
+        AudioClip clipProc = AudioClip.Create(
+            clipOrig.name + "-loop", clipOrig.frequency * 8, clipOrig.channels, clipOrig.frequency, false
+        );
+        float[] buf = new float[clipOrig.frequency * 8 * clipOrig.channels];
+        clipOrig.GetData(buf, 0);
+        clipProc.SetData(buf, 0);
+        _clips[(int)Clips.ElectricMotor] = clipProc;
+
         GameObject obj = GameObject.Find("Audio Manager");
         if (obj == null)
         {

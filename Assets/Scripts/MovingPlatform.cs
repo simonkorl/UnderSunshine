@@ -23,6 +23,7 @@ public class MovingPlatform : MonoBehaviour
         audioOff.clip = SFXUtils.GetClip(SFXUtils.Clips.ElectricMotorOff);
 
         audioMoving.volume = 1;
+        audioMoving.loop = true;
         audioMoving.Play();
         transform.position = originPos;
         float currentTime = Time.time;

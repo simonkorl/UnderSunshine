@@ -21,6 +21,7 @@ public class FragileBrick : MonoBehaviour
 		gameObject.SetActive(false);
 		ParticleSystem sys = sprite.GetComponent<ParticleSystem>() as ParticleSystem;
 		if (sys != null) sys.Play();
+		SFXUtils.PlayOnce(SFXUtils.Clips.Brickbreaking, 1.0f);
 	}
 
     void OnCollisionEnter2D(Collision2D collision)

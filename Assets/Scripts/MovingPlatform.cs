@@ -10,9 +10,6 @@ public class MovingPlatform : MonoBehaviour
     Vector3 targetPos;
     public bool easeOut;
 
-    public AudioSource audioMoving;
-    public AudioSource audioOff;
-
     public void startMoving()
     {
         StartCoroutine(moving());
@@ -20,6 +17,11 @@ public class MovingPlatform : MonoBehaviour
 
     IEnumerator moving()
     {
+        AudioSource audioMoving = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+        AudioSource audioOff = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+        audioMoving.clip = SFXUtils.GetClip(SFXUtils.Clips.ElectricMotor);
+        audioOff.clip = SFXUtils.GetClip(SFXUtils.Clips.ElectricMotorOff);
+
         audioMoving.volume = 1;
         audioMoving.Play();
         transform.position = originPos;

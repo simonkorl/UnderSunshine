@@ -13243,7 +13243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310342a44ed6302449956e44acbfea17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 0.1
   sprite: {fileID: 1629018857}
   sprite1: {fileID: 917957865}
   sprite2: {fileID: 303824298}

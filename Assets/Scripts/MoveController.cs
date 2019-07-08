@@ -20,10 +20,12 @@ public class MoveController : MonoBehaviour
 	private Animator animator;
 
 	public string groundTag;
+	protected bool firstTimeGround;
 
 	void Start()
 	{
 		animator = GetComponentInChildren<Animator>();
+		firstTimeGround = true;
 	}
 	
 	public void ControlMove()
@@ -53,6 +55,7 @@ public class MoveController : MonoBehaviour
 			velocity.y = jumpHeight;
 			if(animator != null)
 				animator.SetTrigger("Jump");
+			SFXUtils.PlayOnce(SFXUtils.Clips.Jump, 1.0f);
 		}
 		GetComponent<Rigidbody2D>().velocity = velocity;
 	}
@@ -103,6 +106,11 @@ public class MoveController : MonoBehaviour
 		Collider2D collider = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, WhatIsGround).collider;
 		if (collider != null)
 		{
+			if (!grounded)
+			{
+				if (firstTimeGround) firstTimeGround = false;
+				else SFXUtils.PlayOnce(SFXUtils.Clips.Fall, 1.0f);
+			}
 			grounded = true;
 			groundTag = collider.gameObject.tag;
 		}

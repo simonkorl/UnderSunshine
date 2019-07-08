@@ -35,6 +35,8 @@ public static class SFXUtils
         WalkPatrol4,
         WalkPatrol5,
         WalkPatrol6,
+        Jump,
+        Fall,
         Count
     };
 
@@ -83,6 +85,8 @@ public static class SFXUtils
 		_clips[(int)Clips.WalkPatrol4] = Resources.Load<AudioClip>("Audio/SFX/patrolwalking/patrolwalking4");
 		_clips[(int)Clips.WalkPatrol5] = Resources.Load<AudioClip>("Audio/SFX/patrolwalking/patrolwalking5");
 		_clips[(int)Clips.WalkPatrol6] = Resources.Load<AudioClip>("Audio/SFX/patrolwalking/patrolwalking6");
+        _clips[(int)Clips.Jump] = Resources.Load<AudioClip>("Audio/SFX/jump/jump");
+        _clips[(int)Clips.Fall] = Resources.Load<AudioClip>("Audio/SFX/jump/fall");
 
         GameObject obj = GameObject.Find("Audio Manager");
         if (obj == null)

@@ -14,10 +14,13 @@ public class FragileBrick : MonoBehaviour
 	IEnumerator Break()
 	{
 		yield return new WaitForSeconds(delay);
-		sprite.SetActive(false);
+		SpriteRenderer renderer = sprite.GetComponent<SpriteRenderer>() as SpriteRenderer;
+		renderer.enabled = false;
 		sprite1.SetActive(true);
 		sprite2.SetActive(true);
 		gameObject.SetActive(false);
+		ParticleSystem sys = sprite.GetComponent<ParticleSystem>() as ParticleSystem;
+		if (sys != null) sys.Play();
 	}
 
     void OnCollisionEnter2D(Collision2D collision)

@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 105208467}
   m_Layer: 8
   m_Name: "\u79FB\u52A8\u5E73\u53F0"
-  m_TagString: Untagged
+  m_TagString: MetalPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1378,7 +1378,7 @@ GameObject:
   - component: {fileID: 153165977}
   m_Layer: 8
   m_Name: Box (2)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3080,7 +3080,7 @@ GameObject:
   - component: {fileID: 398566236}
   m_Layer: 8
   m_Name: Box (4)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3409,7 +3409,7 @@ GameObject:
   - component: {fileID: 453216440}
   m_Layer: 8
   m_Name: Box (17)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3466,7 +3466,7 @@ GameObject:
   - component: {fileID: 458387859}
   m_Layer: 8
   m_Name: Box (3)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9617,7 +9617,7 @@ GameObject:
   - component: {fileID: 666276636}
   m_Layer: 8
   m_Name: "\u7BB1\u5B50 (1)"
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10861,7 +10861,7 @@ GameObject:
   - component: {fileID: 755659632}
   m_Layer: 8
   m_Name: Box (5)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11724,7 +11724,7 @@ GameObject:
   - component: {fileID: 838864106}
   m_Layer: 8
   m_Name: "\u79FB\u52A8\u5E73\u53F0 (1)"
-  m_TagString: Untagged
+  m_TagString: MetalPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12773,7 +12773,7 @@ GameObject:
   - component: {fileID: 963423135}
   m_Layer: 8
   m_Name: "\u79FB\u52A8\u5E73\u53F0"
-  m_TagString: Untagged
+  m_TagString: MetalPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15460,7 +15460,7 @@ GameObject:
   - component: {fileID: 1303920932}
   m_Layer: 8
   m_Name: "\u8FB9\u754C\u7BB1\u5B50\u78B0\u649E (1)"
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16522,7 +16522,7 @@ GameObject:
   - component: {fileID: 1488965279}
   m_Layer: 8
   m_Name: Box (6)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17485,7 +17485,7 @@ GameObject:
   - component: {fileID: 1608309511}
   m_Layer: 8
   m_Name: Box (18)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18658,7 +18658,7 @@ GameObject:
   - component: {fileID: 1810488801}
   m_Layer: 8
   m_Name: Box (1)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18795,7 +18795,7 @@ GameObject:
   - component: {fileID: 1828575823}
   m_Layer: 8
   m_Name: "\u79FB\u52A8\u5E73\u53F0 (1)"
-  m_TagString: Untagged
+  m_TagString: MetalPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

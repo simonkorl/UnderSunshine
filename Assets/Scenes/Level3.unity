@@ -5579,7 +5579,7 @@ GameObject:
   - component: {fileID: 845344150}
   m_Layer: 8
   m_Name: Box (3)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6350,7 +6350,7 @@ GameObject:
   - component: {fileID: 949716835}
   m_Layer: 11
   m_Name: "\u79FB\u52A8\u5E73\u53F0"
-  m_TagString: Untagged
+  m_TagString: MetalPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9237,7 +9237,7 @@ GameObject:
   - component: {fileID: 1483811913}
   m_Layer: 11
   m_Name: "\u79FB\u52A8\u5E73\u53F0 (1)"
-  m_TagString: Untagged
+  m_TagString: MetalPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11068,7 +11068,7 @@ GameObject:
   - component: {fileID: 1801284420}
   m_Layer: 8
   m_Name: Box (2)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11125,7 +11125,7 @@ GameObject:
   - component: {fileID: 1810488801}
   m_Layer: 8
   m_Name: Box (1)
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

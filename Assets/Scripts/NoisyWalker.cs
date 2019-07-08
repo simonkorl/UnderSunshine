@@ -27,15 +27,18 @@ public class NoisyWalker : MonoBehaviour
             if (timeSinceLastStep >= stepInterval)
             {
                 timeSinceLastStep = 0;
+                string tag = controller.groundTag;
                 if (isWorker)
                 {
                     float distance = Vector3.Distance(body.transform.position, Camera.main.transform.position);
                     float volume = Mathf.Clamp((25 - distance) / (25 - 15) * 0.8f, 0, 0.8f);
-                    SFXUtils.PlayRandomOnce(SFXUtils.Clips.WalkPatrol1, SFXUtils.Clips.WalkPatrol6, volume);
+                    if (tag == "MetalPlatform")
+                        SFXUtils.PlayRandomOnce(SFXUtils.Clips.WalkMetal1, SFXUtils.Clips.WalkMetal6, volume);
+                    else
+                        SFXUtils.PlayRandomOnce(SFXUtils.Clips.WalkPatrol1, SFXUtils.Clips.WalkPatrol6, volume);
                 }
                 else
                 {
-                    string tag = controller.groundTag;
                     if (tag == "WoodenBox")
                         SFXUtils.PlayRandomOnce(SFXUtils.Clips.WalkWood1, SFXUtils.Clips.WalkWood6, 1.0f);
                     else if (tag == "MetalPlatform")

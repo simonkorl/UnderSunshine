@@ -15,6 +15,8 @@ public class Switch : MonoBehaviour
 
 	protected bool isTriggered;
 
+	public AudioSource audio;
+
 	void Start()
 	{
 		player = GameObject.FindGameObjectsWithTag("Player")[0];
@@ -40,6 +42,7 @@ public class Switch : MonoBehaviour
 		spriteRenderer.sprite = triggeredSprite;
 		if (target != null) target.SendMessage("startMoving");
 		isTriggered = true;
+		audio.Play();
 
 		if (controlledObj != player)
 		{

@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
 		if(hit.collider == null || LayerMask.LayerToName(hit.transform.gameObject.layer) == "Hole")
 		{
 			gameManager.GameOver();
+			SFXUtils.PlayOnce(SFXUtils.Clips.Burnout, 1.0f);
 		}
 	}
 }

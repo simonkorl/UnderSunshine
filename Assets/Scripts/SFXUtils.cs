@@ -11,6 +11,7 @@ public static class SFXUtils
         Discontrol,
         Pulley,
         WoodenBox,
+        Burnout,
         WalkHard1,
         WalkHard2,
         WalkHard3,
@@ -61,6 +62,7 @@ public static class SFXUtils
 		_clips[(int)Clips.Discontrol] = Resources.Load<AudioClip>("Audio/SFX/discontrol");
 		_clips[(int)Clips.Pulley] = Resources.Load<AudioClip>("Audio/SFX/pulley");
 		_clips[(int)Clips.WoodenBox] = Resources.Load<AudioClip>("Audio/SFX/woodenbox");
+		_clips[(int)Clips.Burnout] = Resources.Load<AudioClip>("Audio/SFX/burnout");
 		_clips[(int)Clips.WalkHard1] = Resources.Load<AudioClip>("Audio/SFX/walking on hard floor/walkhard1");
 		_clips[(int)Clips.WalkHard2] = Resources.Load<AudioClip>("Audio/SFX/walking on hard floor/walkhard2");
 		_clips[(int)Clips.WalkHard3] = Resources.Load<AudioClip>("Audio/SFX/walking on hard floor/walkhard3");

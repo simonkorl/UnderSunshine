@@ -53,7 +53,7 @@ public class BasicEnemy : MonoBehaviour
 	}
 	private void FixedUpdate() 
 	{
-		if(beController.canMove && canBeControlled)
+		if(!controlled && canBeControlled)
 			SpotPlayer();
 	}
     // Update is called once per frame

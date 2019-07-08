@@ -387,6 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingDistance: -6
   m_MovingTime: 5
+  easeOut: 1
 --- !u!114 &6605672665541620744
 MonoBehaviour:
   m_ObjectHideFlags: 0

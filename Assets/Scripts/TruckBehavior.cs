@@ -71,13 +71,13 @@ public class TruckBehavior : MonoBehaviour
 			totalTime += Time.deltaTime;
 			audioCarRunning.volume =    // (/_ ;)
 				totalTime < 4 ?
-				LinearEnvelope(totalTime, 1.5f, 1.6f, 0, 0.8f) :
-				LinearEnvelope(totalTime, 6.6f, 6.8f, 0.8f, 0f);
+				LinearEnvelope(totalTime, 1.5f, 1.6f, 0, 0.7f) :
+				LinearEnvelope(totalTime, 6.4f, 6.6f, 0.7f, 0f);
 			if (totalTimePrev < 1.6f && totalTime >= 1.6f)
 			{
 				truckMove.startMoving();
 			}
-			else if (totalTimePrev < 6.6f && totalTime >= 6.6f)
+			else if (totalTimePrev < 6.4f && totalTime >= 6.4f)
 			{
 				audioCarStop.volume = 1;
 				audioCarStop.Play();

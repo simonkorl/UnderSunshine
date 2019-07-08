@@ -6431,7 +6431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingDistance: -2.3
-  m_MovingTime: 1
+  m_MovingTime: 2
 --- !u!61 &949716836
 BoxCollider2D:
   m_ObjectHideFlags: 0

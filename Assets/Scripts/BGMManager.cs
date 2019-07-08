@@ -35,7 +35,6 @@ public class BGMManager : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         string name = scene.name;
-        Debug.Log(name);
         bool isMinor = (name == "Level1" || name == "Level2" || name == "Level3" || name == "3");
         if (isMinor != currentIsMinor)
         {
@@ -56,10 +55,5 @@ public class BGMManager : MonoBehaviour
         }
         major.volume = vol;
         minor.volume = 1.0f - vol;
-        /*Debug.Log("a");
-        Debug.Log(rampFrom);
-        Debug.Log(rampTo);
-        Debug.Log(rampUntil);
-        Debug.Log(vol);*/
     }
 }

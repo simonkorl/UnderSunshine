@@ -52,7 +52,7 @@ public class MoveController : MonoBehaviour
 		velocity.x = Mathf.SmoothDamp(velocity.x, moveVelocity, ref dampVelocity, dampTime);
 		if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && grounded)
 		{
-			velocity.y = jumpHeight;
+			velocity.y = jumpHeight * 1.4f;
 			if(animator != null)
 				animator.SetTrigger("Jump");
 			SFXUtils.PlayOnce(SFXUtils.Clips.Jump, 1.0f);
@@ -98,9 +98,12 @@ public class MoveController : MonoBehaviour
 
 	void FixedUpdate() 
 	{
+		Rigidbody2D body = GetComponent<Rigidbody2D>();
+		if (Mathf.Abs(body.velocity.y) > jumpHeight * 1.4f * 0.55f)
+			body.gravityScale = 2.0f;
+		//if (body.velocity.y != 0) Debug.Log(body.velocity.y);
 		if (!canMove)
 		{
-			Rigidbody2D body = GetComponent<Rigidbody2D>();
 			body.velocity = new Vector2(0, body.velocity.y);
 		}
 		Collider2D collider = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, WhatIsGround).collider;

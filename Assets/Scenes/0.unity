@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minor: {fileID: 1272814410}
   major: {fileID: 1272814409}
-  rampDur: 2.5
+  rampDur: 0.2
 --- !u!4 &1272814412
 Transform:
   m_ObjectHideFlags: 0

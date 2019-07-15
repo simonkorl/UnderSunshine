@@ -10,6 +10,8 @@ public class NoisyWalker : MonoBehaviour
     public float stepInterval;
     protected float timeSinceLastStep;
 
+    public float overallVolume;
+
     public bool isWorker;
 
     void Start()
@@ -31,7 +33,7 @@ public class NoisyWalker : MonoBehaviour
                 if (isWorker)
                 {
                     float distance = Vector3.Distance(body.transform.position, Camera.main.transform.position);
-                    float volume = Mathf.Clamp((25 - distance) / (25 - 15) * 0.8f, 0, 0.8f);
+                    float volume = Mathf.Clamp((25 - distance) / (25 - 15) * 0.8f, 0, 0.8f) * overallVolume;
                     if (tag == "MetalPlatform")
                         SFXUtils.PlayRandomOnce(SFXUtils.Clips.WalkMetal1, SFXUtils.Clips.WalkMetal6, volume);
                     else
@@ -40,11 +42,11 @@ public class NoisyWalker : MonoBehaviour
                 else
                 {
                     if (tag == "WoodenBox")
-                        SFXUtils.PlayRandomOnce(SFXUtils.Clips.WalkWood1, SFXUtils.Clips.WalkWood6, 1.0f);
+                        SFXUtils.PlayRandomOnce(SFXUtils.Clips.WalkWood1, SFXUtils.Clips.WalkWood6, overallVolume);
                     else if (tag == "MetalPlatform")
-                        SFXUtils.PlayRandomOnce(SFXUtils.Clips.WalkMetal1, SFXUtils.Clips.WalkMetal6, 1.0f);
+                        SFXUtils.PlayRandomOnce(SFXUtils.Clips.WalkMetal1, SFXUtils.Clips.WalkMetal6, overallVolume);
                     else
-                        SFXUtils.PlayRandomOnce(SFXUtils.Clips.WalkHard1, SFXUtils.Clips.WalkHard6, 1.0f);
+                        SFXUtils.PlayRandomOnce(SFXUtils.Clips.WalkHard1, SFXUtils.Clips.WalkHard6, overallVolume);
                 }
             }
         }

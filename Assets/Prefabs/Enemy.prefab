@@ -431,5 +431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9046307d7fe634984b9815155123763e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepInterval: 0.25
+  stepInterval: 0.28
+  overallVolume: 1
   isWorker: 1

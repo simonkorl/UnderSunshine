@@ -188,7 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9046307d7fe634984b9815155123763e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepInterval: 0.2
+  stepInterval: 0.25
+  overallVolume: 0.5
+  isWorker: 0
 --- !u!1 &1129295340
 GameObject:
   m_ObjectHideFlags: 0

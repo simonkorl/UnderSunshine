@@ -14,6 +14,9 @@ public class BGMManager : MonoBehaviour
     protected bool currentIsMinor;
     protected float rampFrom, rampTo;
     protected float rampUntil;
+    
+    protected const float BAR_LENGTH = 60.0f / 72 * 4;
+    protected int lastBar;
 
     void Start()
     {
@@ -29,25 +32,43 @@ public class BGMManager : MonoBehaviour
         rampFrom = 0;
         rampTo = 0;
         rampUntil = 0;
+        lastBar = -1;
+    }
+
+    // (exp(0.5 k) - exp(0)) / m ==
+    // (exp(k) - exp(0.5 k)) / (1 - m)
+    static private float VOL_MIDWAY = 0.2f;
+    static private float K = 2 * Mathf.Log(1.0f / VOL_MIDWAY - 1);
+    static private float DENOM_INV = 1.0f / (Mathf.Exp(K) - 1);
+
+    static float EaseExpOut(float x)
+    {
+        return (Mathf.Exp(K * x) - 1) * DENOM_INV;
     }
 
     void Update()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        string name = scene.name;
-        bool isMinor = (name == "Level1" || name == "Level2" || name == "Level3" || name == "3");
-        if (isMinor != currentIsMinor)
+        int curBar = (int)Mathf.Floor(Mathf.Repeat(minor.time + rampDur, minor.clip.length) / BAR_LENGTH);
+        if (curBar != lastBar)
         {
-            rampFrom = (currentIsMinor ? 0 : 1);
-            rampTo = (isMinor ? 0 : 1);
-            rampUntil = rampDur;
-            currentIsMinor = isMinor;
+            Debug.Log(curBar);
+            Scene scene = SceneManager.GetActiveScene();
+            string name = scene.name;
+            bool isMinor = (name == "Level1" || name == "Level2" || name == "Level3" || name == "3");
+            if (isMinor != currentIsMinor)
+            {
+                rampFrom = (currentIsMinor ? 0 : 1);
+                rampTo = (isMinor ? 0 : 1);
+                rampUntil = rampDur;
+                currentIsMinor = isMinor;
+            }
+            lastBar = curBar;
         }
         float vol;
         if (rampUntil > 0)
         {
             rampUntil = Math.Max(rampUntil - Time.deltaTime, 0);
-            vol = Mathf.Lerp(rampFrom, rampTo, 1.0f - rampUntil / rampDur);
+            vol = Mathf.Lerp(rampFrom, rampTo, EaseExpOut(1.0f - rampUntil / rampDur));
         }
         else
         {
